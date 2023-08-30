@@ -32,20 +32,20 @@ SELECT product_name, manufacture, price
 FROM mobile_phone
 WHERE product_count>2;
 
-SELECT*
+SELECT mobile_no, product_name, manufacture, product_count, price
 FROM mobile_phone
 WHERE product_name LIKE '%Samsung%';
 
-SELECT*
+SELECT mobile_no, product_name, manufacture, product_count, price
 FROM mobile_phone
 WHERE product_name LIKE '%Iphone%';
 
-SELECT*
+SELECT mobile_no, product_name, manufacture, product_count, price
 FROM mobile_phone
 WHERE product_name LIKE '%Samsung%';
 
 
-SELECT*
+SELECT mobile_no, product_name, manufacture, product_count, price
 FROM mobile_phone
 WHERE product_name like '%8%';
 
