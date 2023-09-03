@@ -86,14 +86,15 @@ UPDATE profiles
 SET is_active = true
 WHERE (YEAR(CURRENT_DATE) - YEAR(birthday)) - (DATE_FORMAT(CURRENT_DATE, '%m%d') < DATE_FORMAT(birthday, '%m%d'));
 
+
+
+-- 3. Написать скрипт, удаляющий сообщения «из будущего» (дата позже сегодняшней)
 INSERT INTO messages(id,from_user_id,to_user_id,body)
 	VALUES ('1', '1', '1', 'OLOLOLOL' ); 
 
 UPDATE messages
 	SET created_at = '3333-01-01 00:00:01'
     WHERE id = 1;
-
--- 3. Написать скрипт, удаляющий сообщения «из будущего» (дата позже сегодняшней)
 
 DELETE FROM messages
 WHERE created_at > now()
