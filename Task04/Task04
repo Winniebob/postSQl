@@ -1,0 +1,15 @@
+--Создайте представление с произвольным SELECT-запросом 
+CREATE VIEW friend_status AS
+SELECT requested_at, status ,RANK() OVER(PARTITION BY status ORDER BY requested_at) AS ' RANK'
+FROM friend_requests;
+-- Выведите данные
+SELECT*
+FROM friend_status;
+-- Удалите представление
+DROP VIEW friend_status;
+--Сколько новостей (записей в таблице media) у каждого пользователя? Вывести поля: news_count (количество новостей), user_id (номер пользователя), user_email (email пользователя). 
+CREATE VIEW news_media AS
+SElECT DISTINCT media.user_id, users.email AS 'user_email', COUNT(users.email) OVER(PARTITION BY media.user_id ORDER BY media.user_id  ) AS 'news_count'
+FROM media
+	LEFT JOiN users ON users.id = media.user_id;
+
